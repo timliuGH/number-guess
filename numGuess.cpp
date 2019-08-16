@@ -2,13 +2,19 @@
 #include <cstdlib>
 #include <ctime>
 
+int getRandomNumber(int min, int max)
+{
+    srand(time(0));
+    int randomNumber = (rand() % (max - min + 1)) + min;
+}
+
 int main()
 {
+    std::cout << "\nGuess a number from 1 to 100.\n" << std::endl;
     // Get a random number from 1 to 100 for the player to guess.
-    srand(time(0));
-    int max = 100;
     int min = 1;
-    int randomNumber = (rand() % (max - min + 1)) + min;
+    int max = 100;
+    int randomNumber = getRandomNumber(min, max);
     std::cout << "DEBUG: randomNumber is " << randomNumber << std::endl;
 
     // Prompt player for guess.
